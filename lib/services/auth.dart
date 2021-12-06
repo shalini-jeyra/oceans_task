@@ -25,7 +25,7 @@ Future<Response> login(String email, String password) async {
   } else {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
-    throw Exception('Failed to create album.');
+    throw Exception('Failed to fetch User');
   }
 }
 Future<Response> signUp(String name,String email, String password) async {
@@ -49,7 +49,7 @@ Future<Response> signUp(String name,String email, String password) async {
   } else {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
-    throw Exception('Failed to create album.');
+    throw Exception('Failed to create User');
   }
 }
 

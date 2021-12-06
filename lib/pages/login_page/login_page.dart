@@ -69,11 +69,11 @@ class _LoginPageState extends State<LoginPage> {
                                       emailController.text,
                                       passwordController.text);
                                   if (va.message == "success") {
-                                    Navigator.push(
+                                    Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const HomePage()));
+                                                const HomePage()),(route)=>false);
                                   }else
                                   if (va.message ==
                                       "invalid username or password") {
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                                       context: context,
                                       builder: (BuildContext context) {
                                         return AlertDialog(
-                                          title: Text(
+                                          title: const Text(
                                               'Invalid username and password'),
                                           actions: <Widget>[
                                             ElevatedButton(
@@ -106,7 +106,13 @@ class _LoginPageState extends State<LoginPage> {
                             children: [
                               const Text('Don\'t have an account?'),
                               GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const SignUpPage()),(route)=>false);
+                                  },
                                   child: const Text(
                                     'Sign up Now',
                                     style: TextStyle(

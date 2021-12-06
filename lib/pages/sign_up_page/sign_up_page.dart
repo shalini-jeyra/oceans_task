@@ -83,11 +83,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                       emailController.text,
                                       passwordController.text);
                                   if (va.message == "success") {
-                                    Navigator.push(
+                                    Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const HomePage()));
+                                                const HomePage()),(route)=>false);
                                   } else if (va.message ==
                                       "invalid username or password") {
                                     showDialog(
@@ -119,7 +119,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               const Text('Don\'t have an account?'),
                               GestureDetector(
                                   onTap: () {
-                                    Navigator.pushReplacement(
+                                    Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (BuildContext context) =>
