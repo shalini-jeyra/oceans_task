@@ -29,11 +29,11 @@ class _SignUpPageState extends State<SignUpPage> {
         child: SingleChildScrollView(
           child: GestureDetector(
             onTap: (){
-               FocusScope.of(context).requestFocus(new FocusNode());
+               FocusScope.of(context).requestFocus( FocusNode());
             },
             child: Column(
               children: [
-                Design(),
+                const Design(),
                 Form(
                   key: _formKey,
                   child: Card(
@@ -45,21 +45,25 @@ class _SignUpPageState extends State<SignUpPage> {
                           text: 'Sign up',
                         ),
                         TextFieldWidget(
+                          inputType: TextInputType.name,
                           text: 'User Name',
                           controller: userNameController,
                           validatorText: 'invalid Username',
                         ),
                         TextFieldWidget(
+                          inputType: TextInputType.phone,
                           text: 'Phone Number',
                           controller: phoneNumberController,
                           validatorText: 'invalid phone number',
                         ),
                         TextFieldWidget(
+                          inputType: TextInputType.emailAddress,
                           text: 'Email',
                           controller: emailController,
                           validatorText: 'invalid email',
                         ),
                         TextFieldWidget(
+                          inputType: TextInputType.text,
                           text: 'Password',
                           controller: passwordController,
                           validatorText: 'invalid password',
@@ -88,16 +92,17 @@ class _SignUpPageState extends State<SignUpPage> {
                                         MaterialPageRoute(
                                             builder: (context) =>
                                                 const HomePage()));
-                                  } else if (va.message ==
+                                  } 
+                                  else if (va.message ==
                                       "invalid username or password") {
                                     showDialog(
                                       context: context,
                                       builder: (BuildContext context) {
                                         return AlertDialog(
-                                          title: Text('Fill all the details '),
+                                          title: const Text('Fill all the details '),
                                           actions: <Widget>[
                                             ElevatedButton(
-                                              child: Text('Ok'),
+                                              child: const Text('Ok'),
                                               onPressed: () {
                                                 Navigator.of(context).pop();
                                               },

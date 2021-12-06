@@ -26,11 +26,11 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           child: GestureDetector(
             onTap: () {
-              FocusScope.of(context).requestFocus(new FocusNode());
+              FocusScope.of(context).requestFocus( FocusNode());
             },
             child: Column(
               children: [
-                Design(),
+                const Design(),
                 Form(
                   key: _formKey,
                   child: Card(
@@ -43,11 +43,13 @@ class _LoginPageState extends State<LoginPage> {
                           text: 'LOG IN',
                         ),
                         TextFieldWidget(
+                          inputType: TextInputType.emailAddress,
                           text: 'Email',
                           controller: emailController,
-                          validatorText: 'invalid Emailid',
+                          validatorText: 'Invalid Emailid',
                         ),
                         TextFieldWidget(
+                          inputType: TextInputType.text,
                           text: 'Password',
                           controller: passwordController,
                           validatorText: 'invalid password',
@@ -81,11 +83,11 @@ class _LoginPageState extends State<LoginPage> {
                                       context: context,
                                       builder: (BuildContext context) {
                                         return AlertDialog(
-                                          title: Text(
+                                          title: const Text(
                                               'Invalid username and password'),
                                           actions: <Widget>[
                                             ElevatedButton(
-                                              child: Text('Ok'),
+                                              child: const Text('Ok'),
                                               onPressed: () {
                                                 Navigator.of(context).pop();
                                               },
