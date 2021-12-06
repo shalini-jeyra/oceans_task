@@ -8,16 +8,18 @@ class TextFieldWidget extends StatelessWidget {
     Key? key,
     required this.text,
     required this.controller,
-    required this.validatorText
+    required this.validatorText,required this.inputType
   }) : super(key: key);
   final String text;
   final String validatorText;
   final TextEditingController controller;
+  final TextInputType inputType;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left:32.0,right: 32,top: 10),
       child: TextFormField(
+        keyboardType: inputType,
         controller: controller,
         style: TextFonts.ternaryText,
         decoration: InputDecoration(
